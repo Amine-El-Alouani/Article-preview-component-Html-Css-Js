@@ -1,0 +1,219 @@
+:root {
+    --VeryDarkGrayishBlue: hsl(217, 19%, 35%);
+    --DesaturatedDarkBlue: hsl(214, 17%, 51%);
+    --GrayishBlue: hsl(212, 23%, 69%);
+    --LightGrayishBlue: hsl(210, 46%, 95%);
+}
+
+* {
+    font-family: 'Manrope', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--LightGrayishBlue);
+    color: var(--VeryDarkGrayishBlue);
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background-color: white;
+    height: 270px;
+    width: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+/* card image */
+
+.card>.card__img {
+    background-image: url(/images/drawers.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    width: 35%;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+}
+
+.card>.card__img>img {
+    height: 100%;
+    width: 100%;
+}
+
+/* card content */
+
+.card>.card__content {
+    width: 65%;
+    padding: 40px;
+}
+
+.card>.card__content>.text>h3 {
+    font-size: 20px;
+    margin-top: 35px;
+    margin-bottom: 0;
+}
+
+.card>.card__content>.text>p {
+    color: var(--DesaturatedDarkBlue);
+    margin: 15px 0;
+    line-height: 20px;
+}
+
+.card>.card__content>.social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 35px;
+}
+
+.card>.card__content>.social>.social__user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card>.card__content>.social>.social__user>img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.card>.card__content>.social>.social__user>.user__text {
+    margin-left: 15px;
+}
+
+.card>.card__content>.social>.social__user>.user__text>h4 {
+    margin: 0;
+}
+
+.card>.card__content>.social>.social__user>.user__text>p {
+    color: var(--GrayishBlue);
+    margin: 0;
+}
+
+.card>.card__content>.social>.social__share {
+    position: relative;
+}
+
+.card>.card__content>.social>.social__share>i {
+    background-color: var(--LightGrayishBlue);
+    color: var(--DesaturatedDarkBlue);
+    transition: all 0.5s;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.card>.card__content>.social>.social__share>i:hover {
+    color: var(--LightGrayishBlue);
+    background-color: var(--DesaturatedDarkBlue);
+}
+
+.card>.card__content>.social>.social__share>.tooltip {
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    background-color: var(--VeryDarkGrayishBlue);
+    position: absolute;
+    padding: 15px 25px;
+    bottom: 180%;
+    right: -260%;
+    border-radius: 10px;
+}
+
+.card>.card__content>.social>.social__share>.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+}
+
+.card>.card__content>.social>.social__share>.tooltip>span {
+    color: var(--GrayishBlue);
+    letter-spacing: 5px;
+}
+
+.card>.card__content>.social>.social__share>.tooltip>img {
+    height: 17px;
+    width: 17px;
+}
+
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        height: 480px;
+        width: 325px;
+    }
+
+    .card>.card__img {
+        width: 100%;
+        height: 40%;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .card>.card__content {
+        width: 100%;
+        height: 60%;
+        padding: 30px;
+    }
+
+    .card>.card__content>.text>h3 {
+        font-size: 15px;
+        margin-top: 0;
+        line-height: 25px;
+        letter-spacing: 1px;
+    }
+
+    .card>.card__content>.text>p {
+        margin: 25px 0;
+    }
+
+    .card>.card__content>.social>.social__share>.tooltip {
+        bottom: -35px;
+        right: -30px;
+        border-radius: 10px;
+        justify-content: flex-start;
+        align-items: center;
+        width: 325px;
+        background-color: var(--VeryDarkGrayishBlue);
+        position: absolute;
+        padding: 22px 30px;
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    .card>.card__content>.social>.social__share>.tooltip::after {
+        display: none;
+    }
+
+    .card>.card__content>.social>.social__share>i {
+        position: absolute;
+        z-index: 100;
+        top: -13px;
+        right: 0;
+    }
+
+    .card>.card__content>.social>.social__share>.tooltip>img {
+        height: 19px;
+        width: 19px;
+        margin: 0px 10px;
+    }
+
+}
+
+.card>.card__content>.social>.social__share>.tooltip.active {
+    display: flex;
+}
